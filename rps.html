@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elemental Forces</title>
+    </head>
+    <body>
+        <img src="~/chart.png" alt="Elemental chart.">
+        <p>To play, choose Flame, Wind, or Water.</p>
+        <script>
+        var playerWin = false;
+        var computerWin = false;
+        var playerScore = 0;
+        var computerScore = 0;
+
+        function computerPlay () {
+            var computer = ['flame', 'wind', 'water']
+            var rand = computer[Math.floor(Math.random() * computer.length)];
+            return rand
+        }
+
+        function gamePlay (playerSelection, computerSelection) {
+            var playerSelection = playerSelection.toLowerCase()
+            var computerSelection = computerPlay()
+
+            if ((playerSelection != 'flame') && (playerSelection != 'water') && (playerSelection != 'wind')) {
+                console.log("Invalid element.")
+                
+            }
+
+            if ((   playerSelection == 'flame' && computerSelection == 'wind') || 
+                (   playerSelection == 'wind' && computerSelection == 'water') ||
+                (   playerSelection == 'water' && computerSelection == 'flame' )) {
+                playerWin == true;
+                playerScore++
+                return  "The computer played " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) + ". " + 
+                        "You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + " beats " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) + ".";
+            } else if (playerSelection == computerSelection) {
+                playerWin == false;
+                computerWin == false;
+                return "The computer played " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) + ". " + 
+                        "You tie!"
+            } else {
+                computerWin == true;
+                computerScore++
+                return "The computer played " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) + ". " + 
+                        "You lose! " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + ".";
+            }
+        }
+
+        function game () {
+            var rounds = 1
+
+            while (rounds <= 5) {
+                console.log('Player Score: ' + playerScore)
+                console.log('Computer Score: ' + computerScore)
+                var playerSelect = prompt('What element do you pick?')
+                console.log(gamePlay(playerSelect))
+                rounds++
+            }
+           
+            console.log('Final Player Score: ' + playerScore)
+            console.log('Final Computer Score: ' + computerScore)
+
+            if (playerScore > computerScore) {
+                console.log("You win! Congratulations!")
+            } else if (playerScore == computerScore) {
+                console.log("You tied.")
+            } else {
+                console.log("You lose! Sucks to suck.")
+            }
+        }
+        
+        game ()
+        
+        </script>
+    </body>
+
+</html>
