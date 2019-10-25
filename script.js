@@ -1,9 +1,13 @@
+localStorage.setItem("pScore", playerScore);
+localStorage.setItem("cScore", computerScore);
+
 var playerWin = false;
 var computerWin = false;
 var playerElement = ' ';
 var computerElement = ' ';
-var playerScore = 0;
-var computerScore = 0;
+var playerScore = localStorage.getItem('pScore');
+var computerScore = localStorage.getItem('cScore');
+var d = document.getElementById("cbtn");
 var elements = ['flame', 'wind', 'water'];
 var playerS = document.querySelector('.playerS');
 var compS = document.querySelector('.computerS');
@@ -20,6 +24,23 @@ const flame = document.querySelector('.flame');
 const wind = document.querySelector('.wind');
 const water = document.querySelector('.water');
 const select = document.querySelector('.selected');
+
+if (playerScore === null) {
+    playerScore = 0;
+}
+
+if (computerScore === null) {
+    computerScore = 0;
+}
+
+playerScore = 0;
+computerScore = 0;
+
+if (d.style.display === "none") {
+    d.style.display = "block";
+} else {
+    d.style.display = "none";
+}
 
 function computerPlay () {
     computerElement = elements[Math.floor(Math.random() * elements.length)];
@@ -54,16 +75,20 @@ function chooseWater () {
     //removeChildren ();
 } // stylizes the water button if chosen
 
-/* function scoreChange () {
+function scoreChange () {
     playerS.textContent = playerScore;
     compS.textContent = computerScore;
-} // changes displayed score */
+} // changes displayed score 
 
 function resetScore () {
-    let playerScore = 0;
-    let computerScore = 0;
-    playerS.textContent = playerScore;
-    compS.textContent = computerScore;
+    localStorage.removeItem('pScore');
+    localStorage.removeItem('cScore');
+    playerScore = 0;
+    computerScore = 0;
+    playerS.textContent = "0";
+    compS.textContent = "0";
+    console.log(playerScore);
+    console.log(computerScore);
 } // resets score
 
 function compElement (src, alt) {
@@ -117,7 +142,7 @@ function gameLose () {
 function playerSelect (input) {
     playerElement = input;
     var selected = document.querySelector('.' + playerElement.toString());
-
+    d.style.display = "block";
     flame.classList.remove('selected');
     wind.classList.remove('selected');
     water.classList.remove('selected');
@@ -144,8 +169,6 @@ function confirmSelect () {
         computerScore++;
     }
 
-    playerS.textContent = playerScore;
-    compS.textContent = computerScore;
 } // Confirms player element selection and plays the game.
 
 function gamePlay (playerElement) {
@@ -159,8 +182,9 @@ function gamePlay (playerElement) {
     } else {
         gameLose ();
     }
-    playerS.textContent = playerScore;
-    compS.textContent = computerScore; 
+    scoreChange ();    
+    console.log(playerScore);
+    console.log(computerScore);
 }
 
 // Plays five rounds of Elemental Forces in the console.
