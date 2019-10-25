@@ -73,11 +73,11 @@ function compElement (src, alt) {
 
 function compImage (){    
     if (computerElement == elements[0]) {
-        var src = "~/flame.png";
+        var src = "flame.png";
     } else if (computerElement == elements[1]) {
-        var src = "~/wind.png";
+        var src = "wind.png";
     } else if (computerElement == elements[2]) {
-        var src = "~/water.png";
+        var src = "water.png";
     }
     compElement(src, "Computer Element");
 }
