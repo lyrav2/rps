@@ -1,0 +1,119 @@
+* {
+    font-family: "Verdana", sans-serif;
+    font-size: 13px;
+    background-color: #c2b2b2;
+    box-sizing: content-box;
+}
+
+.chart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18%;
+    opacity: 30%;
+}
+
+.confirmbtn {
+    margin: 0 auto;
+    display: inline;
+}
+
+.announcebox {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.announcebox h3{
+    font-family: "Helvetica", sans-serif;
+    font-size: larger;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    font-family: "Helvetica", sans-serif;
+    font-size: larger;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+#container {
+    width: 50%;
+    padding: 10px;
+}
+
+#container img {
+    width: 100%;
+    height: auto;
+}
+
+#container .btn {
+    display: block;
+    background-color: #555;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.confirmbtn {
+    display: block;
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.resetbtn {
+    display: block;
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    padding-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.resetbtn:hover {
+    background-color: black;
+    transform:scale(1.1)
+}
+
+.confirmbtn:hover {
+    background-color: black;
+    transform:scale(1.1)
+}
+
+#container .flame:hover{
+    background-color: red;
+    transform:  scale(1.1);
+}
+
+#container .wind:hover {
+    background-color: green;
+    transform: scale(1.1);
+}
+
+#container .water:hover {
+    background-color: blue;
+    transform: scale(1.1);
+}
+
+.selected {
+    background-color: rgba(255, 255, 255, 0.8)!important;
+    transform: scale(1.1);
+}
