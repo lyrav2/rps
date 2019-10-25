@@ -36,12 +36,6 @@ if (computerScore === null) {
 playerScore = 0;
 computerScore = 0;
 
-if (d.style.display === "none") {
-    d.style.display = "block";
-} else {
-    d.style.display = "none";
-}
-
 function computerPlay () {
     computerElement = elements[Math.floor(Math.random() * elements.length)];
 } // Decides what the element the computer will play.
